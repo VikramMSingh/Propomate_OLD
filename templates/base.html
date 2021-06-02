@@ -1,0 +1,24 @@
+{% load static %}
+
+<html>
+<head>
+<title> Propomate </title>
+<link rel="shortcut icon" href="{% static 'prop_icon.png' %}">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link href="{% static 'css/style.css' %}" rel="stylesheet" />
+<script src="{% static 'node_module/chart.js/dist/chart.js' %}"> </script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.min.js" integrity="sha256-Uv9BNBucvCPipKQ2NS9wYpJmi8DTOEfTA/nH2aoJALw=" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.min.css" integrity="sha256-aa0xaJgmK/X74WM224KMQeNQC2xYKwlAt08oZqjeF0E=" crossorigin="anonymous" />
+    <!-- jQuery -->
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+
+</head>
+<body>
+<div class="max-w-7xl mx-auto">
+	{% include 'navbar.html' %}
+	{% block content %}
+	{% endblock content %}
+</div>
+</body>
+</html>

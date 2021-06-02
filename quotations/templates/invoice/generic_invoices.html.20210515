@@ -1,0 +1,78 @@
+{% extends 'base_invoices.html' %}
+{% block content %}
+<section class="text-gray-600 body-font">
+                    <a href="#" class="inline-flex bg-blue-500 font-semibold rounded-lg py-2 px-5 text-white">Create Invoice</a>
+        <div class="flex flex-col w-full">
+            <div class="-my-2 overflow-x-auto sm:-mx-6 lg:-mx-8">
+            <div class="py-2 align-middle inline-block min-w-full sm:px-6 lg:px-8">
+                <div class="shadow overflow-hidden border-b border-gray-900 sm:rounded-lg bg-gray-600">
+                <table class="min-w-full divide-y divide-gray-900">
+                    <thead class="bg-gray-50">
+                        <tr>
+                                <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"></th>
+        
+                                <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Customer</th>
+                                <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Date</th>
+                                <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Due Date</th>
+                                <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Balance</th>
+                                <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Total</th>
+                                <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Status</th>
+                                <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">View</th>
+                                <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Download</th>
+
+                            </tr>
+                        </thead>
+                        {% for invoice in invoices %}
+                        <tr>
+                            <td><input class="checkbox" type="checkbox" value="{{invoice.id}}" name="invoice_id" size="1" />
+                            </td>
+                            <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">{{invoice.customer}}</td>
+                            <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900"> {{invoice.date}}</td>
+                            <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900"> {{invoice.due_date}} </td>
+                            <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900"></td>
+                            <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">{{invoice.total_amount}}</td>
+                            <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">
+                                {% if invoice.get_status %}
+                                <a class="button is-small is-success" href="#">Paid</a>
+                                {% else %}
+                                <a class="button is-small is-warning" href="#">Not Paid</a>
+                                {% endif %}
+                            </td>
+                            <td width=class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900"><a href="#">
+                                <div class="button is-small is-info">View</div>
+                            </a></td>
+                            <td width=class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900"><a href="#">Download</a></td>
+                        </tr>
+                        {% endfor %}
+
+                    </tbody>
+                </table>
+
+            </div>
+        </div>
+    </div><br /><br /><br />
+    <a href="#" class="inline-flex bg-blue-500 font-semibold rounded-lg py-2 px-5 text-white">Create Invoice</a>
+</section>
+    <br>
+    <div class="flex-grow">
+        <br>
+        <br>
+        <div class="mt-5 justify-left">
+            <p class="lg:w-2/3 mx-auto leading-relaxed text-base">
+                Change Order Status
+            </p>
+        <div class="mt-5">
+                <select id="status" name="status">
+                    <option class="lg:w-2/3 mx-auto leading-relaxed text-base" value="1">Paid</option>
+                    <option class="lg:w-2/3 mx-auto leading-relaxed text-base" value="0">Not Paid</option>
+                </select>
+            </div>
+            <br>
+            <button type='submit' class="w-half text-white bg-blue-500 hover:bg-blue-600 px-3 py-2 rounded-md">
+            Submit
+        </button>
+        </div>
+    </div>
+</form>
+
+{% endblock content %}

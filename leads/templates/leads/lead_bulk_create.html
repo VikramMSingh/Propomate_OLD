@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+{% load tailwind_filters %}
+{% load static %}
+
+{% block content %}
+
+<div class="max-w-lg mx-auto">
+    <a class="hover:text-blue-500" href="{% url 'leads:list-lead' %}">Go back to leads</a>
+    <div class="py-5 border-t border-gray-200">
+        <h1 class="text-4xl text-gray-800">Upload leads from csv</h1>
+    </div>
+    <form method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        {{ form|crispy }}
+        <button type='submit' class="w-full text-white bg-blue-500 hover:bg-blue-600 px-3 py-2 rounded-md">
+            Upload
+        </button>
+        <div class="py-5 border-t border-gray-200">
+        <a class="text-1xl text-gray-800 hover:text-blue-500" href="{% static 'sample_file/leads_sample.csv' %}" download="sample csv file"> Download sample file </a>
+    </div>
+    </form>
+</div>
+
+{% endblock content %}

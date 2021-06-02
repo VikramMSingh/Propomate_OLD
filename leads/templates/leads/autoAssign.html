@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+{% load tailwind_filters %}
+
+{% block content %}
+
+<div class="max-w-lg mx-auto">
+    <a class="hover:text-blue-500" href="{% url 'leads:list-lead' %}">Go back to leads</a>
+    <div class="py-5 border-t border-gray-200">
+        <h3 class="text-4xl text-gray-800">Auto assign leads to agents?</h3>
+        <p>Assign all leads</p>
+        {{ form|crispy }}
+        <form method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        <br>
+        <button type='submit' class="w-full text-white bg-blue-500 hover:bg-blue-600 px-3 py-2 rounded-md">
+            Auto Assign
+        </button>
+        <br>
+        <br>
+        <button type='submit' class="w-full text-white bg-blue-500 hover:bg-blue-600 px-3 py-2 rounded-md" href="{% url 'leads:list-lead' %}">
+            Cancel
+        </button>
+    </form>
+
+   
+{% endblock content %}

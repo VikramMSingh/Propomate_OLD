@@ -1,0 +1,23 @@
+                    <div class="columns is-centered">
+                        <a> Customer/Company Name</a>
+                        <div class="column is-one-third">
+                            {{form.customer}}
+                        </div>
+
+                        <div class="column is-one-third">
+                            {{form.customer_email}}
+                        </div>
+                    <div class="columns is-centered">
+                        <div class="column is-one-third">
+                            {{form.billing_address}}
+                        </div>
+
+
+Lead - Prospect 
+Qualified Lead - Marketing team has verified it 
+Contacted - In existing back and forth
+Closed lead - converted - Contact 
+Closed lead - unconverted - Reach out later/recycle bin
+Contact - Existing customer who can increase business 
+
+Opportunity can come from Contact or Lead 

@@ -1,0 +1,35 @@
+{% load static %}
+<html>
+<section class="text-gray-700 body-font">
+<div class='chart-container' style="position: relative; height:20vh, width:20vw">  
+<script src="https://cdn.jsdelivr.net/npm/chart.js@3.0.1/dist/chart.min.js"></script> 
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script> 
+    <canvas id="myChartAgent"></canvas>
+    <script type="text/javascript">
+         var endpoint = 'dashboard/';
+         var ctx = document.getElementById("myChartAgent");
+         var defaultLabels = ["Assigned Leads", "Converted Leads"];
+         var defaultData   = [{{ assigned_leads }}, {{ converted_leads }}];
+  var myChartAgent = new Chart(ctx, {
+    type: 'bar',
+
+data: {
+    labels: defaultLabels,
+    datasets: [{
+        data: defaultData,
+        label: "Lead conversion data",
+        backgroundColor: [
+                'rgba(44, 130, 201, 0.2)',
+            ],
+            borderColor: [
+                'rgba(0, 0, 0, 1)',
+            ],
+        borderWidth:1,
+    },
+      ]
+}
+})
+</script>
+</div>
+</section>
+</html>
