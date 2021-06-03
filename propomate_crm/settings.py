@@ -8,9 +8,9 @@ env = environ.Env(
     DEBUG=(bool, False)
 )
 #reading .env file
-READ_DOT_ENV_FILE = env.bool('READ_DOT_ENV_FILE', default=False)
-if READ_DOT_ENV_FILE:
-    environ.Env.read_env()
+#READ_DOT_ENV_FILE = env.bool('READ_DOT_ENV_FILE', default=False)
+#if READ_DOT_ENV_FILE:
+ #   environ.Env.read_env()
 
 environ.Env.read_env()
 
@@ -32,8 +32,10 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 
 # SECURITY WARNING: don't run with debug turned on in production!
 
-ALLOWED_HOSTS = ['propomate-abws6.ondigitalocean.app', 'www.propomate.com', '127.0.0.1']
+ALLOWED_HOSTS = ['propomate-abws6.ondigitalocean.app', 'www.propomate.com']
 
+
+# Application definition
 
 INSTALLED_APPS = [
     'django.contrib.admin',
@@ -89,20 +91,17 @@ TEMPLATES = [
 WSGI_APPLICATION = 'propomate_crm.wsgi.application'
 
 
-
 # Database
 # https://docs.djangoproject.com/en/3.1/ref/settings/#databases
 
 DATABASES = {
     'default': {
-        #'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR/'db.sqlite3',   
-       # 'NAME': env("DB_NAME"),
-        #'USER': env("DB_USER"),
-        #'PASSWORD': env("DB_PASSWORD"),
-        #'HOST': env("DB_HOST"),
-        #'PORT': env("DB_PORT"),
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'NAME': env("DB_NAME"),
+        'USER': env("DB_USER"),
+        'PASSWORD': env("DB_PASSWORD"),
+        'HOST': env("DB_HOST"),
+        'PORT': env("DB_PORT"),
     }
 }
 
@@ -162,16 +161,16 @@ LOGOUT_REDIRECT_URL = "/login"
 CRISPY_ALLOWED_TEMPLATE_PACKS = "tailwind"
 CRISPY_TEMPLATE_PACK = "tailwind"
 
-#RECAPTCHA_PUBLIC_KEY = env("RECAPTCHA_PUBLIC_KEY") 
-#RECAPTCHA_PRIVATE_KEY = env("RECAPTCHA_PRIVATE_KEY")
+RECAPTCHA_PUBLIC_KEY = env("RECAPTCHA_PUBLIC_KEY") 
+RECAPTCHA_PRIVATE_KEY = env("RECAPTCHA_PRIVATE_KEY")
 
 EMAIL_BACKEND = "django.core.mail.backends.smtp.EmailBackend"
-#EMAIL_HOST = env("EMAIL_HOST")
-#EMAIL_HOST_USER = env("EMAIL_HOST_USER")
-#EMAIL_HOST_PASSWORD = env("EMAIL_HOST_PASSWORD")
-#EMAIL_USE_TLS = True
-#EMAIL_PORT = env("EMAIL_PORT")
-#DEFAULT_FROM_EMAIL = env("DEFAULT_FROM_EMAIL")
+EMAIL_HOST = env("EMAIL_HOST")
+EMAIL_HOST_USER = env("EMAIL_HOST_USER")
+EMAIL_HOST_PASSWORD = env("EMAIL_HOST_PASSWORD")
+EMAIL_USE_TLS = True
+EMAIL_PORT = env("EMAIL_PORT")
+DEFAULT_FROM_EMAIL = env("DEFAULT_FROM_EMAIL")
 
 
 if not DEBUG:
@@ -193,5 +192,5 @@ if not DEBUG:
     EMAIL_USE_TLS = True
     EMAIL_PORT = env("EMAIL_PORT")
     DEFAULT_FROM_EMAIL = env("DEFAULT_FROM_EMAIL")
-    #RECAPTCHA_PUBLIC_KEY = env("RECAPTCHA_PUBLIC_KEY") 
-    #RECAPTCHA_PRIVATE_KEY = env("RECAPTCHA_PRIVATE_KEY")
+    RECAPTCHA_PUBLIC_KEY = env("RECAPTCHA_PUBLIC_KEY") 
+    RECAPTCHA_PRIVATE_KEY = env("RECAPTCHA_PRIVATE_KEY")
