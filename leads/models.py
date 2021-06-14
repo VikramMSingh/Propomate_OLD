@@ -17,6 +17,7 @@ class UserProfile(models.Model):
 	def __str__(self):
 		return self.user.username
 
+
 #class UserAccount(models.Model):
 #	user = models.ForeignKey(User,related_name="user_account", on_delete=models.CASCADE)
 #	user_profile = models.ForeignKey(UserProfile, related_name="user_prof", on_delete=models.CASCADE)

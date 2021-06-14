@@ -63,7 +63,10 @@ class CompanyView(generic.CreateView, OrganizerAndLoginRequiredMixin):
 #
  #   def get_success_url(self):
   #      return reverse("dashboard")
-            
+
+class ComingSoonPage(generic.TemplateView):
+    def get(self,request):
+        return render(request, "coming_soon.html")
 
 class LandingPageView(generic.TemplateView):
     def get(self, request):

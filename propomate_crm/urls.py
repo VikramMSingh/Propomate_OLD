@@ -20,11 +20,12 @@ from django.contrib.auth.views import (LoginView, LogoutView,
     PasswordResetView, PasswordResetConfirmView, PasswordResetDoneView,
     PasswordResetCompleteView)
 from django.urls import path, include
-from leads.views import (LandingPageView, SignupView, DashboardView, LeadLearnView, ChartView, CompanyView)
+from leads.views import (ComingSoonPage, LandingPageView, SignupView, DashboardView, LeadLearnView, ChartView, CompanyView)
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', LandingPageView.as_view() , name='home-page'),
+    path('', ComingSoonPage.as_view(), name='coming-soon'),
+    #path('', LandingPageView.as_view() , name='home-page'),
     #path('continue-registration/', CompReg.as_view(), name="company_register"),
     path('dashboard/', DashboardView.as_view(), name="dashboard"),
     path('company_details/', CompanyView.as_view(), name="create-company"),
