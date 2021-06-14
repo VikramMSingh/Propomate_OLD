@@ -1,24 +1,12 @@
 {% load static %}
-
-<html>
-<head>
-<title> Propomate </title>
-<link rel="shortcut icon" href="{% static 'prop_icon.png' %}">
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<link href="{% static 'css/style.css' %}" rel="stylesheet" />
-</head>
-<body>
-	<section class="text-gray-600 body-font bg-gray-100">
-  <div class="container px-5 py-24 mx-auto">
-    <div class="flex flex-wrap -mx-4 -mb-10 text-center">
-      <div class="sm:w-1/2 mb-10 px-4">
-        <h1 class="title-font text-4xl font-medium text-gray-800 mt-6 mb-3">Take your business to the next level!</h1>
-        <h2 class="title-font text-2xl font-medium text-gray-800 mt-6 mb-3">Use our intelligent tools to grow your business</h2>
-        <a href="{% url 'signup' %}" class="inline-flex bg-blue-500 font-semibold rounded-lg py-2 px-5 text-white">Coming Soon!</a>
+<div class="flex items-center justify-center h-screen bg-gray-200">
+  <div class="container">
+    <div class="bg-white rounded-lg shadow-lg p-5 md:p-20 mx-2">
+      <div class="text-center">
+        <h2 class="text-4xl tracking-tight leading-10 font-extrabold text-gray-900 sm:text-5xl sm:leading-none md:text-6xl">
+          Propo<span class="text-indigo-600">mate</span>
+        </h2>
+        <h3 class='text-xl md:text-3xl mt-10'>Coming Soon</h3>
+        <p class="text-md md:text-xl mt-10"><a class="hover:underline" href="https://www.propomate.com"></a>Use Propomate's intelligent tools to take your business to the next level.</p>
       </div>
-  </div>
 </div>
-</section>
-</body>
-</html>
