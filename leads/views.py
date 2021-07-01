@@ -17,7 +17,7 @@ from agents.views import AgentCreateView
 from .forms import (LeadModelForm,
                     NewUserCreationForm, AssignAgentForm,
                     LeadCategoryUpdateForm, CategoryModelForm, FollowUpModelForm,
-                    BulkUploadForm, CompanyCreationForm)
+                    BulkUploadForm, CompanyCreationForm, EmailModelForm)
 from agents.mixins import OrganizerAndLoginRequiredMixin
 from csv import DictReader
 import io
@@ -64,9 +64,17 @@ class CompanyView(generic.CreateView, OrganizerAndLoginRequiredMixin):
  #   def get_success_url(self):
   #      return reverse("dashboard")
 
-class ComingSoonPage(generic.TemplateView):
-    def get(self,request):
-        return render(request, "coming_soon.html")
+class ComingSoonPage(generic.CreateView):
+    template_name = "collect_email.html"
+    form_class = EmailModelForm 
+
+    def get_success_url(self):
+        return reverse("#")
+
+    def form_valid(self, form):
+        email = form.save(commit=True)
+        email.save()
+        return super(ComingSoonPage, self).form_valid(form)
 
 class LandingPageView(generic.TemplateView):
     def get(self, request):

@@ -1,6 +1,7 @@
 from django.db import models
 from django.db.models.signals import post_save
 from django.contrib.auth.models import AbstractUser
+from django.core.mail import send_mail, EmailMultiAlternatives
 
 # Create your models here.
 
@@ -39,6 +40,9 @@ class Company(models.Model):
 
 	def __str__(self):
 		return self.company_name
+
+class Email(models.Model):
+	email = models.EmailField(null=True, blank=True)
 
 
 class LeadManager(models.Manager):
@@ -155,4 +159,15 @@ def post_user_signal(sender,instance,created, **kwargs):
 
 post_save.connect(post_user_signal, sender=User)
 
-	
+def post_email_signal(sender,instance,created,**kwargs):
+	if created:
+		subject = "Test Email"
+		message = "Create beautiful landing pages, automate your marketing emails and messages."
+		cust = instance
+		send_mail(
+			subject,
+			message,
+			from_email= EMAIL_HOST_USER,
+			recipient_list = [cust]
+			)
+post_save.connect(post_email_signal, sender=Email)

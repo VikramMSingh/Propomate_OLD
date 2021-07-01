@@ -1,0 +1,29 @@
+{% extends "base_landing.html" %}
+{% load tailwind_filters %}
+{% block content %}
+<main style="background-image: linear-gradient(rgba(135, 80, 156, 0.9), rgba(135, 80, 156, 0.9)),url(/static/img/bg_img.jpg)" class="h-full flex items-center bg-purple-900 text-white bg-no-repeat bg-fixed">
+    <header class="w-full absolute left-0 top-0 px-6 py-4">
+    <div class="flex justify-between">
+      <div>
+        <h1 class="text-3xl font-bold"></h1>
+        <span></span>
+      </div>  
+    </div>
+  </header>
+  <section class="w-full md:w-9/12 xl:w-8/12">
+    <span class="font-bold uppercase tracking-widest px-6"></span>
+    <h1 class="text-3xl lg:text-5xl font-bold text-pink-500 px-6">
+      All your tools in one place.<br/> Create. Automate. Collaborate. No switching tabs and no hidden charges.
+    </h1>
+    <h3 class="font-bold text-2xl px-6">Coming Soon. Join the waitlist below..</h3>
+    <br>
+    <form method="post" class="w-1/2 px-6">
+      {% csrf_token %}
+      {{ form|crispy }}
+      <button type = 'submit' class="text-gray-900 bg-white px-3 py-2 rounded-md px-6">
+      Join the waitlist
+      </button>
+    
+  </section>  
+</main>
+{% endblock content %}

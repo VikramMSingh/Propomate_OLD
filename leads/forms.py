@@ -1,10 +1,11 @@
 from django import forms
-from django.forms import formset_factory
+from django.forms import formset_factory, TextInput
 from django.core.exceptions import ValidationError
 from django.contrib.auth import get_user_model
 from django.contrib.auth.forms import PasswordResetForm
 from agents.main_forms import UserCreationForm, UsernameField
-from .models import Lead, Agent, Category, FollowUp, Company
+from .models import Lead, Agent, Category, FollowUp, Company, Email
+from django.utils.translation import ugettext_lazy as _
 
 User = get_user_model()
 
@@ -59,6 +60,24 @@ class LeadModelForm(forms.ModelForm):
 #	first_name = forms.CharField()
 #	last_name = forms.CharField()
 #	age = forms.IntegerField()
+
+class EmailModelForm(forms.ModelForm):
+    class Meta:
+        model = Email
+        fields = (
+            'email',)
+        widgets = {
+        "email": TextInput(attrs={'placeholder': 'Email'}),
+        }
+        labels = {
+        'email': _(''),
+        }
+
+    def clean_email(self):
+        data = self.cleaned_data["email"]
+        if Email.objects.filter(email=data).exists():
+            raise ValidationError("Email is already subscribed")
+        return data
 
 
 class NewUserCreationForm(UserCreationForm):

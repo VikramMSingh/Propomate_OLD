@@ -40,7 +40,8 @@ urlpatterns = [
     path('charts/',ChartView.as_view(), name='charts'),
  	path('leads/', include('leads.urls', namespace="leads")),
     path('agents/',include('agents.urls', namespace='agents')),
-    path('invoicing/',include('quotations.urls', namespace='invoicing'))
+    path('invoicing/',include('quotations.urls', namespace='invoicing')),
+    path('contacts/',include('contacts.urls',namespace='contacts'))
 ]
 
 if settings.DEBUG:

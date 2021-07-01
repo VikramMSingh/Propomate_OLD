@@ -8,7 +8,9 @@ module.exports = {
         content: [
             '../**/templates/*.html',
             '../**/templates/**/*.html'
-        ]
+        ],
+	safelist: [
+      	    'bg-purple-900']
     },
     theme: {
         extend: {},

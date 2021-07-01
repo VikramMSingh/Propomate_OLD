@@ -2,12 +2,20 @@
 
 <html>
 <head>
+	<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-Y9WTTPXW6D"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-Y9WTTPXW6D');
+</script>
 <title> Propomate </title>
 <link href="{% static 'css/style.css' %}" rel="stylesheet" />
 </head>
 <body>
-<div class="w-screen bg-blue-700 mx-auto">
-	{% include 'navbar_landing.html' %}
+<div class="w-full bg-purple-900 mx-auto">
 	{% block content %}
 	{% endblock content %}
 </div>
