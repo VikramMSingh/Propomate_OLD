@@ -160,15 +160,14 @@ def post_user_signal(sender,instance,created, **kwargs):
 
 post_save.connect(post_user_signal, sender=User)
 
-def post_email_signal(sender,instance,created,**kwargs):
-	if created:
-		subject = "Test Email"
-		message = "Create beautiful landing pages, automate your marketing emails and messages."
-		cust = instance
-		send_mail(
-			subject,
-			message,
-			from_email= EMAIL_HOST_USER,
-			recipient_list = [cust]
+#def post_email_signal(sender,instance,created,**kwargs):
+#	if created:
+#		subject = "Test Email"
+#		message = "Create beautiful landing pages, automate your marketing emails and messages."
+#		cust = instance
+#		send_mail(
+##			message,
+#			from_email= EMAIL_HOST_USER,
+#			recipient_list = [cust]
 			)
-post_save.connect(post_email_signal, sender=Email)
+#post_save.connect(post_email_signal, sender=Email)
