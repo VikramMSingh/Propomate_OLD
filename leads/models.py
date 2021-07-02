@@ -169,5 +169,5 @@ post_save.connect(post_user_signal, sender=User)
 ##			message,
 #			from_email= EMAIL_HOST_USER,
 #			recipient_list = [cust]
-			)
+#			)
 #post_save.connect(post_email_signal, sender=Email)
