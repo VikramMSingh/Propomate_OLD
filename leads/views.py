@@ -79,7 +79,7 @@ class ComingSoonPage(generic.CreateView):
             message='A new lead has been added, please review',
             from_email= EMAIL_HOST_USER,
             recipient_list= [em.email]
-        )
+            )
         return super(ComingSoonPage, self).form_valid(form)
 
 class LandingPageView(generic.TemplateView):
