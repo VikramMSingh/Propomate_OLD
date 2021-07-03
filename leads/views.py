@@ -69,7 +69,7 @@ class ComingSoonPage(generic.CreateView):
     form_class = EmailModelForm 
 
     def get_success_url(self):
-        return reverse("#")
+        return reverse("coming-soon")
 
     def form_valid(self, form):
         em = form.save(commit=True)
