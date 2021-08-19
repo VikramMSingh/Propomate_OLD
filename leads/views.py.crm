@@ -75,8 +75,8 @@ class ComingSoonPage(generic.CreateView):
         em = form.save(commit=True)
         em.save()
         send_mail(
-            subject="Thank you!",
-            message='Thanks for joining the waitlist!',
+            subject="A lead has been created",
+            message='A new lead has been added, please review',
             from_email= EMAIL_HOST_USER,
             recipient_list= [em.email]
             )

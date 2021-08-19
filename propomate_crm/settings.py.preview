@@ -54,7 +54,8 @@ INSTALLED_APPS = [
     'leads',
     'agents',
     'tasks',
-    'quotations'
+    'quotations',
+    'contacts'
 ]
 
 MIDDLEWARE = [

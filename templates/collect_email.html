@@ -1,7 +1,7 @@
 {% extends "base_landing.html" %}
 {% load tailwind_filters %}
 {% block content %}
-<main style="background-image: linear-gradient(rgba(135, 80, 156, 0.9), rgba(135, 80, 156, 0.9)),url(/static/img/bg_img.jpg)" class="h-full flex items-center bg-purple-900 text-white bg-no-repeat bg-fixed">
+<main style="background-image: linear-gradient(rgba(130, 80, 140, 0.9), rgba(130, 80, 140, 0.9)),url(/static/img/bg_img.jpg)" class="h-full flex items-center bg-purple-900 text-white bg-no-repeat bg-fixed">
     <header class="w-full absolute left-0 top-0 px-6 py-4">
     <div class="flex justify-between">
       <div>
@@ -11,12 +11,13 @@
     </div>
   </header>
   <section class="w-full md:w-9/12 xl:w-8/12">
-    <span class="font-bold uppercase tracking-widest px-6"></span>
+    <span class="w-full font-bold uppercase tracking-widest px-6"></span>
+    <div class="w-1/2 md:w-9/12 xl:w-8/12">
     <h1 class="text-4xl lg:text-5xl font-bold text-pink-500 px-6">
-    Take your business to the next level!<br/>  
+    Next level marketing!! <br/>  
     </h1>
-    <h2 class="text-2xl lg:text-4xl font-bold text-pink-500 px-6">
-      Create. Automate. Collaborate. All in one place. <br/>  
+    <h2 class="text-2xl lg:text-4xl font-bold text-pink-500 px-6"> Create 
+      <br/>  
     </h2>
     <h3 class="font-bold text-2xl px-6">Coming Soon. Join the waitlist below..</h3>
     <br>
@@ -26,6 +27,8 @@
       <button type = 'submit' class="text-gray-900 bg-white px-3 py-2 rounded-md px-6">
       Join the waitlist
       </button>
+    </form>
+  </div>
     <br>
     <br>
   </section>  
