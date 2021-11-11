@@ -24,8 +24,8 @@ from leads.views import (ComingSoonPage, LandingPageView, SignupView, DashboardV
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', ComingSoonPage.as_view(), name='coming-soon'),
-    #path('', LandingPageView.as_view() , name='home-page'),
+    #path('', ComingSoonPage.as_view(), name='coming-soon'),
+    path('', LandingPageView.as_view() , name='home-page'),
     #path('continue-registration/', CompReg.as_view(), name="company_register"),
     path('dashboard/', DashboardView.as_view(), name="dashboard"),
     path('company_details/', CompanyView.as_view(), name="create-company"),
