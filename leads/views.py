@@ -100,8 +100,8 @@ class CRMLandingPageView(generic.TemplateView):
     template_name = "landing_page.html"
 
      def dispatch(self, request, *args, **kwargs):
-    	if request.user.is_authenticated:
-    		return redirect("dashboard")
+        if request.user.is_authenticated:
+            return redirect("dashboard")
     	return super().dispatch(request, *args, **kwargs)
 
 class ChartView(OrganizerAndLoginRequiredMixin,generic.TemplateView):
