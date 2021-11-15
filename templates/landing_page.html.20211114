@@ -1,67 +1,52 @@
-{% extends 'base_landing.html' %}
+
 {% load static %}
 
 {% block content %}
-<section class="text-gray-700 body-font w-screen bg-white-300">
-    <div class="container mx-auto flex px-5 py-24 items-center justify-center flex-col w-screen">
-      <img class="lg:w-full mb-10 object-cover object-justify rounded w-full" alt="hero" src="{% static 'img/landing_header.jpg' %}">
-      <div class="text-center lg:w-2/3">
-             
-        </p>
-        {% if not request.user.is_authenticated %}
-        <div class="flex justify-center">
-          <a href="{% url 'login' %}" class="inline-flex text-white bg-blue-500 border-0 py-2 px-6 focus:outline-none hover:bg-blue-600 rounded text-lg">
-            Login to get started
-          </a>
+<section class="text-gray-600 body-font bg-gray-100">
+  <div class="container px-5 py-24 mx-auto">
+    <div class="flex flex-wrap -mx-4 -mb-10 text-center">
+      <div class="sm:w-1/2 mb-10 px-4">
+        <h1 class="title-font text-4xl font-medium text-gray-800 mt-6 mb-3">Take your business to the next level!</h1>
+        <h2 class="title-font text-2xl font-medium text-gray-800 mt-6 mb-3">Increase your sales, reach out to your customers, manage customer requests and automate repetitive work all using our tools!</h2>
+        <a href="{% url 'signup' %}" class="inline-flex bg-blue-500 font-semibold rounded-lg py-2 px-5 text-white">Try it for free!</a>
+      </div>
+      <div class="sm:w-1/2 mb-10 px-4">
+        <div class="rounded-lg h-64 overflow-hidden">
+          <img alt="content" class="object-cover object-center h-30 w-30" src="{% static 'img/cover_image.JPG' %}">
         </div>
-        {% endif %}
       </div>
     </div>
+  </div>
 </section>
-<section class="text-gray-600 body-font">
-  <div class="container px-5 py-10 mx-auto">
+  <div class="container xl:w-2/3 lg:w-2/3 md:w-2/3 text-center px-5 py-5 mx-auto">
     <div class="flex flex-col text-center w-full mb-20">
-      <h2 class="text-xs text-blue-500 tracking-widest font-medium title-font mb-1">Customer Relationship Management Tool</h2>
-      <h1 class="sm:text-3xl text-2xl font-medium title-font mb-4 text-gray-900">PropomateCRM</h1>
-    </div>
-    <div class="flex flex-wrap">
-      <div class="xl:w-1/4 lg:w-1/2 md:w-full px-8 py-6 border-l-2 border-gray-200 border-opacity-60">
-        <h2 class="text-lg sm:text-xl text-gray-900 font-medium title-font mb-2">Leads</h2>
-        <p class="leading-relaxed text-base mb-4"> Create or upload your leads, track their progress from creation to conversion </p>
+      <h2 class="text-xs text-blue-500 tracking-widest font-medium title-font mb-1">Customer Relationship Management</h2>
+      <h1 class="sm:text-4xl text-4xl font-medium title-font mb-4 text-gray-900 py-2">PropomateCRM</h1>
+    <div class="xl:w-full lg:w-full md:w-full px-8 py-2">
+      <h2 class= "text-lg sm:text-xl text-gray-900 font-medium title-font mb-2">
+      Companies using a CRM report a 30% increase in sales and customer retention.</h2>
+        <h2 class= "text-lg sm:text-xl text-gray-900 font-medium title-font mb-2">PropomateCRM will help you manage, effectively communicate and delight your customers as well as your prospective customers, increasing sales, customer loyalty and brand value.</h2>
         <a class="text-blue-500 inline-flex items-center">Learn More About Leads
           <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-4 h-4 ml-2" viewBox="0 0 24 24">
             <path d="M5 12h14M12 5l7 7-7 7"></path>
           </svg>
         </a>
       </div>
-      <div class="xl:w-1/4 lg:w-1/2 md:w-full px-8 py-6 border-l-2 border-gray-200 border-opacity-60">
-        <h2 class="text-lg sm:text-xl text-gray-900 font-medium title-font mb-2">Agents</h2>
-        <p class="leading-relaxed text-base mb-4">Create a super user and add team members as agents to manage leads </p>
-        <a class="text-blue-500 inline-flex items-center">Learn More About Agents
-          <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-4 h-4 ml-2" viewBox="0 0 24 24">
-            <path d="M5 12h14M12 5l7 7-7 7"></path>
-          </svg>
-        </a>
-      </div>
-      <div class="xl:w-1/4 lg:w-1/2 md:w-full px-8 py-6 border-l-2 border-gray-200 border-opacity-60">
-        <h2 class="text-lg sm:text-xl text-gray-900 font-medium title-font mb-2">Categories</h2>
-        <p class="leading-relaxed text-base mb-4">Our CRM comes with 4 default categories and with the option of adding additional categories depending on your workflow </p>
-        <a class="text-blue-500 inline-flex items-center">Learn More About Categories
-          <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-4 h-4 ml-2" viewBox="0 0 24 24">
-            <path d="M5 12h14M12 5l7 7-7 7"></path>
-          </svg>
-        </a>
-      </div>
-      <div class="xl:w-1/4 lg:w-1/2 md:w-full px-8 py-6 border-l-2 border-gray-200 border-opacity-60">
-        <h2 class="text-lg sm:text-xl text-gray-900 font-medium title-font mb-2">Notes</h2>
-        <p class="leading-relaxed text-base mb-4">Store all your communications with a lead in the CRM as notes, can be entered manually or uploaded as a file</p>
-        <a class="text-blue-500 inline-flex items-center">Learn More About Follow Ups
+    </div>
+    <div class="container xl:w-2/3 lg:w-2/3 md:w-2/3 text-center px-5 py-5 mx-auto">
+    <div class="flex flex-col text-center w-full mb-20">
+      <h2 class="text-xs text-blue-500 tracking-widest font-medium title-font mb-1">Invoicing and Quotation</h2>
+      <h1 class="sm:text-4xl text-4xl font-medium title-font mb-4 text-gray-900 py-2">PropBill</h1>
+    <div class="xl:w-full lg:w-full md:w-full px-8 py-2">
+        <h2 class= "text-lg sm:text-xl text-gray-900 font-medium title-font mb-2">Create awesome invoices and quotations within seconds!</h2>
+        <a class="text-blue-500 inline-flex items-center" href="{% url 'quotations:invoice-list' %}">Use it for free
           <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-4 h-4 ml-2" viewBox="0 0 24 24">
             <path d="M5 12h14M12 5l7 7-7 7"></path>
           </svg>
         </a>
       </div>
     </div>
+      
     {% if request.user.is_authenticated %}
     <button class="flex mx-auto mt-16 text-white bg-blue-500 border-0 py-2 px-8 focus:outline-none hover:bg-blue-600 rounded text-lg">
       <a href="{% url 'dashboard' %}">Go to Propomate Business Tools</a></button>
@@ -159,4 +144,4 @@
   </div>
 </footer>
 
-            {% endblock content %}
+{% endblock content %}
