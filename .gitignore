@@ -4,3 +4,4 @@ pyvenv.cfg
 runserver.sh
 *.pyc
 db.sqlite3
+*.sh
