@@ -236,7 +236,7 @@ class LeadListView(LoginRequiredMixin, generic.ListView):
                 user_profile=user.agent.user_profile, agent__isnull=False)
             # filter for current agent
             queryset = Lead.objects.filter(agent__user=user)
-        return queryset
+        return sorted(queryset)
 
     def get_context_data(self, **kwargs):
         context = super(LeadListView, self).get_context_data(**kwargs)
