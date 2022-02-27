@@ -64,23 +64,23 @@ class CompanyView(generic.CreateView, OrganizerAndLoginRequiredMixin):
  #   def get_success_url(self):
   #      return reverse("dashboard")
 
-#class ComingSoonPage(generic.CreateView):
-#    template_name = "collect_email.html"
-#    form_class = EmailModelForm 
+class ComingSoonPage(generic.CreateView):
+    template_name = "collect_email.html"
+    form_class = EmailModelForm 
 
-#    def get_success_url(self):
-#        return reverse("coming-soon")
+    def get_success_url(self):
+        return reverse("coming-soon")
 
-#    def form_valid(self, form):
-#        em = form.save(commit=True)
-#        em.save()
-#       send_mail(
-#            subject="Thank you!",
-#            message='Thanks for joining the waitlist!',
-#            from_email= EMAIL_HOST_USER,
-#            recipient_list= [em.email]
-#            )
-#        return super(ComingSoonPage, self).form_valid(form)
+    def form_valid(self, form):
+        em = form.save(commit=True)
+        em.save()
+        send_mail(
+            subject="Thank you!",
+            message='Thanks for joining the waitlist!',
+            from_email= EMAIL_HOST_USER,
+            recipient_list= [em.email]
+            )
+        return super(ComingSoonPage, self).form_valid(form)
 
 class LandingPageView(generic.TemplateView):
     def get(self, request):
